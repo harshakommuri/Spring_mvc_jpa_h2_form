@@ -23,9 +23,6 @@ public class userService {
 	@Autowired
 	private JavaMailSender javaMailSender;
 	
-	 @Value("${spring.mail.username}")
-	 private String sender;
-	//private String sender="suhelafghan@gmail.com";
 
 	public Map<String, Object> saveUserDetails(UserDetailsModel userDetailsModel) {
 
@@ -36,9 +33,10 @@ public class userService {
 			EmailDetails details=new EmailDetails();
 			
 			
-			details.setRecipient("sumiyaagri0215@gmail.com");
+			//details.setRecipient("sumiyaagri0215@gmail.com");
+			details.setRecipient(userDetailsModel.getEmail());
 			details.setSubject("Test Mail From swapna");
-			details.setMsgBody("Hi this is for testing prupose");
+			details.setMsgBody(userDetailsModel.toString());
 			String response = sendSimpleMail(details);
 			responseMap.put("data", userDetailsModel);
 			responseMap.put("mailStatus", response);

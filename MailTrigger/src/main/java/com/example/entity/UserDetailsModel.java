@@ -9,8 +9,6 @@ import javax.persistence.Table;
 
 @Entity
 public class UserDetailsModel {
-
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -29,6 +27,7 @@ public class UserDetailsModel {
 	private String location;
 	
 	private String mobileNo;
+	private String graduation;
 
 	public String getUserName() {
 		return userName;
@@ -85,6 +84,22 @@ public class UserDetailsModel {
 	public void setMobileNo(String mobileNo) {
 		this.mobileNo = mobileNo;
 	}
+	public String getgraduation() {
+		return graduation;
+	}
+
+	public void setgraduation(String graduation) {
+		this.graduation = graduation;
+	}
+
+	@Override
+	public String toString() {
+		return "UserDetailsModel [id=" + id + ", userName=" + userName + ", experience=" + experience + ", skills="
+				+ skills + ", pointOfContact=" + pointOfContact + ", email=" + email + ", location=" + location
+				+ ", mobileNo=" + mobileNo + ", graduation=" + graduation + "]";
+	}
+	
+	
 	
 	
 }
